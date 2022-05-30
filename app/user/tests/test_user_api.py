@@ -1,7 +1,6 @@
 """
 Test for user Api
 """
-from re import M
 
 from django.contrib.auth import get_user_model
 from django.test import TestCase
@@ -15,7 +14,7 @@ ME_URL = reverse('user:me')
 
 
 def create_user(**params):
-    """Create and return user""" 
+    """Create and return user"""
     return get_user_model().objects.create_user(**params)
 
 
@@ -108,14 +107,14 @@ class PublicUserApiTests(TestCase):
 
         self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
 
-    
+
 class PrivateUserApiTests(TestCase):
     """Test api request that need auth"""
 
     def setUp(self):
         self.user = create_user(
             email='test@example.com',
-            password= 'pass2111',
+            password='pass2111',
             name="Test Name",
         )
         self.client = APIClient()
