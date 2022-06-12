@@ -12,7 +12,7 @@ def create_user(email='user@example.com', password='test123'):
     """Create and return  user for tests"""
     return get_user_model().objects.create_user(email, password)
 
-    
+
 class ModelTests(TestCase):
     """Test models"""
 
